@@ -1,27 +1,36 @@
 @import 'Main.scss';
 
 .Card {
+  position: relative;
   background: white;
-  width: 75%;
-  margin-left: 12.5%;
+  width: 70%;
+  margin: 0 auto;
   margin-top: 5%;
-  height: auto;
+  min-height: 19vw;
   border-radius: 7px;
   border: 1px solid darken(white, 7);
   padding: 1vw;
   box-shadow: 0px 10px 20px darken(white, 6);
+  font-size: 1.5vw;
+
+  select {
+    width: 70%;
+    font-size: 5vw;
+  }
 
   img {
-    width: 30%;
-    margin-top: 1.5vw;
-    margin-left: 1vw;
+    padding-left: 2vw;
     float: left;
+    position: absolute;
     vertical-align: middle;
+    width: auto;
+    height: auto;
+    max-width: 12vw;
   }
 
   .Question {
     margin-top: 1vw;
-    margin-left: 22vw;
+    margin-left: 18vw;
     margin-bottom: 4vw;
 
     h3 {
@@ -41,29 +50,66 @@
     }
   }
 
-  button {
-    font-weight: 500;
-    font-size: 1.2vw;
-    border: none;
-    border-radius: 5vw;
-    outline: none;
-    padding: 1vw;
-    padding-left: 2vw;
-    padding-right: 2vw;
-    cursor: pointer;
-    color: white;
-    background: #289AF5;
-    box-shadow: 0px 3px 8px 0px rgba(186,198,204,0.5);
-    transition: background .5s, box-shadow 1s;
-    margin-left: 44vw;
+  .Handler {
     position: relative;
-    bottom: 1vw;
-  }
+    width: 50%;
+    margin-left: 50%;
+    height: auto;
+    display: inline-block;
 
-  button:hover {
-    background: lighten(#289AF5, 4);
-    box-shadow: 0px 5px 15px 0px rgba(167,180,186,0.5);
-    transition: background .5s, box-shadow .8s;
+    .box {
+      position: relative;
+      float: right;
+      width: 1.5vw;
+      height: 1px;
+    }
+
+    button {
+      font-weight: 500;
+      font-size: 1.2vw;
+      border: none;
+      border-radius: 5vw;
+      outline: none;
+      padding: 1vw;
+      padding-left: 2vw;
+      padding-right: 2vw;
+      cursor: pointer;
+      color: white;
+      background: #289AF5;
+      box-shadow: 0px 3px 8px 0px rgba(186,198,204,0.5);
+      transition: background .5s, box-shadow 1s;
+      margin-bottom: 1vw;
+      margin-right: 1.1vw;
+      float: right;
+      @include noselect;
+    }
+
+    button:hover {
+      background: lighten(#289AF5, 4);
+      box-shadow: 0px 5px 15px 0px rgba(167,180,186,0.5);
+      transition: background .5s, box-shadow .8s;
+    }
+
+    .back {
+      background-color: #BDBDBD;
+      box-shadow: 0px 3px 8px 0px lighten(#BDBDBD, 15);
+    }
+
+    .back:hover {
+      background: lighten(#BDBDBD, 2);
+      box-shadow: 0px 5px 15px 0px lighten(#BDBDBD, 8);
+    }
+
+    .send {
+      background-color: #00C853;
+      box-shadow: 0px 3px 8px 0px lighten(#BDBDBD, 15);
+    }
+
+    .send:hover {
+      background: lighten(#00C853, 2);
+      box-shadow: 0px 5px 15px 0px lighten(#BDBDBD, 5);
+    }
+
   }
 }
 

@@ -1,80 +1,34 @@
 import React, { Component } from 'react'
 
-const questions = [{
-  name: "Start",
-  title: "Welcome!",
-  text: "",
-  option: null
-},{
-  name: "Name",
-  title: "Qual o seu nome?",
-  option: "text"
-},{
-  name: "BirthdayPerson",
-  title: "Você é o aniversariante?",
-  option: "multiple"
-},{
-  name: "PersonName",
-  title: "Qual o nome do aniversariante?",
-  option: "text"
-},{
-  name: "PersonSex",
-  title: "O aniversariante é...",
-  option: "multiple"
-},{
-  name: "PersonAge",
-  title: "Qual a idade do aniversariante?",
-  option: "number"
-},{
-  name: "Budget",
-  title: "Qual seu orçamento?",
-  option: "number"
-},{
-  name: "Guests",
-  title: "Quantas pessoas?",
-  option: "number"
-},{
-  name: "PartyType",
-  title: "Qual o tipo de festa?",
-  option: "text"
-},{
-  name: "PartyThings",
-  title: "O que não poderia faltar na sua festa?",
-  option: "text"
-},{
-  name: "PartyDate",
-  title: "Qual a data do evento?",
-  option: "date"
-},{
-  name: "PersonMail",
-  title: "Qual é o seu e-mail?",
-  option: "mail"
-},{
-  name: "Final",
-  title: "Qual é o seu e-mail?",
-  text: "",
-  option: null
-}];
-
 class Question extends Component {
   componentWillMount() {
     this.setState({
-      questions
-    });
-
-    this.setState({
-      current: questions[this.props.params.id ? this.props.params.id : 0]
+      saying: "Hello!"
     });
   }
 
   render() {
     return (
       <div className="Question">
-        <h3>{this.state.current.title}</h3>
-        <input autocomplete="off" type="text"/>
+        <h3>{this.props.question.sayings[this.props.question.sayings.length - 1].text}</h3>
+          {(() => {
+          switch (this.props.question.option) {
+            case "text": return <input autocomplete="off" type="text"/>;
+            case "textbox": return this.props.question.data;
+            case "multiple": return (
+              <select>
+                {this.props.question.data.map((object) => {
+                    return <option>{object}</option>;
+                })}
+              </select>
+            );
+            default: return null;
+          }
+        })()}
       </div>
     )
   }
+
 }
 
 Question.contextTypes = {
